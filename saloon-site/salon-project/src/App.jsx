@@ -3,14 +3,18 @@ import Navigation from './Pages/Navigation'
 import HomeWin from './Pages/HomeWin'
 import OurServices from './Pages/OurServices'
 import ContactUs from './Pages/ContactUs'
+import Footer from './Pages/Footer'
 
 function App() {
   return (
-   <div className=' min-w-[230px]'>
-       <Navigation />
+   <div className=''>
+       <Navigation >
+        
+       </Navigation >
        <HomeWin/>
        <OurServices/>
        <ContactUs/>
+       <Footer/>
    
    </div>
   )

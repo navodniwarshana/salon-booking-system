@@ -1,6 +1,7 @@
 import React from 'react'
 import haircut from '../../img/haicut.jpeg'
 import { FaCircle } from "react-icons/fa6";
+import BookNowBtn from '../../../Components/BookNowBtn';
 
 function HairCutSection() {
 
@@ -40,11 +41,8 @@ function HairCutSection() {
           <li className='my-2'>Hair/Beard Colouring</li>
         </ul>
 
-        <button
-          className="bg-white text-black text-xl font-playfir font-bold p-2 px-3 my-6 rounded-xl lg:text-lg md:text-base"
-        >
-          BOOK NOW
-        </button>
+       
+        <BookNowBtn/>
       </div>
     </div>
     </>

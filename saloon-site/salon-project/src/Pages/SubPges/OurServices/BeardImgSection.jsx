@@ -2,7 +2,7 @@ import React from 'react'
 import breard from "../../img/beard.jpeg"
 import { FaCircle } from "react-icons/fa6";
 
-function BeardImgSection() {
+function BeardImgSection() {2
   return (
    
      <div className="w-full lg:w-1/3 mt-10 flex flex-col justify-center items-center py-10">

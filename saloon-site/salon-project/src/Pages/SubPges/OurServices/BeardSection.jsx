@@ -2,6 +2,7 @@ import React from "react";
 import BeardImgSection from "./BeardImgSection";
 import breard from "../../img/beard.jpeg"
 import { FaCircle } from "react-icons/fa6";
+import BookNowBtn from "../../../Components/BookNowBtn";
 
 function BeardSection() {
   return (
@@ -22,10 +23,8 @@ function BeardSection() {
             <li className="my-2">Luxury Shave & Beard Spa</li>
           </ul>
 
+         <div className="mr-0 md:mr-16"> <BookNowBtn/></div>
          
-          <button className="bg-white items-center justify-center text-black text-xl font-playfir font-bold mr-14 p-2 px-3 my-6 rounded-xl lg:text-lg md:text-base md:p-2">
-            BOOK NOW
-          </button>
         </div>
     
         <div className="w-full lg:w-1/3 mt-10  flex-col justify-center items-center py-10 hidden md:flex">
