@@ -4,14 +4,14 @@ import HomeWin from './Pages/HomeWin'
 import OurServices from './Pages/OurServices'
 import ContactUs from './Pages/ContactUs'
 import Footer from './Pages/Footer'
+import SideMenu from './Components/SideMenu'
 
-function App() {
+function App(props) {
   return (
    <div className=''>
-       <Navigation >
-        
-       </Navigation >
-       <HomeWin/>
+       <Navigation />
+       <HomeWin> 
+       </HomeWin>
        <OurServices/>
        <ContactUs/>
        <Footer/>

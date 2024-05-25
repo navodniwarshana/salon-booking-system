@@ -2,7 +2,7 @@ import React from "react";
 import { FaCircle } from "react-icons/fa6";
 import img1 from "./img/img1.jpg";
 
-function HomeWin() {
+function HomeWin(props) {
   return (
     <>
       <div
@@ -98,6 +98,7 @@ function HomeWin() {
                 </div>
               </div>
             </div>
+            {props.children}
         </div>
 
       {/*----------------------------------------------------------------------*/}
