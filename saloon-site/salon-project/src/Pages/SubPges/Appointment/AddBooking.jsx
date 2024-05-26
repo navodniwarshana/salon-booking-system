@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { FaCircle } from "react-icons/fa6";
+import { FaCircle,FaAngleLeft} from "react-icons/fa6";
+import { IoIosClose } from "react-icons/io";
 
 
 
@@ -39,9 +40,21 @@ function AddBooking() {
   return (
     <>
       <div className="font-playfir">
-       
+     
  
-        <form className="space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-white border-4 border-black rounded-2xl shadow-md">
+        <form className="space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-gray-600 border-4 border-black rounded-2xl shadow-md">
+        <div className="flex justify-between my-4 mx-5">
+          <button>
+            <FaAngleLeft className="w-8 h-8 border-2  bg-white border-black hover:fill-white hover:bg-black  rounded-full" />
+          </button>
+
+          <h1 className="text-center font-playfir text-white font-bold text-2xl">New Appointment</h1>
+
+          <button>
+         
+            <IoIosClose className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black  rounded-full" />
+          </button>
+        </div>
               <div className="relative">
                 {formData.name && (
                   <label

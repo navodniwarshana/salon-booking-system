@@ -3,7 +3,8 @@ import { FaBars } from "react-icons/fa6";
 import logo from "../img/logo.png";
 import AddBooking from "./Appointment/AddBooking";
 import ConfirmBook from "./Appointment/ConfirmBook";
-import MyAppointment from "./Appointment/MyAppointment";
+import MyAppointments from "./Appointment/MyAppointments";
+import Login from "./LoginActivitys/Login";
 
 function Appointment() {
   return (
@@ -33,7 +34,8 @@ function Appointment() {
 
         <AddBooking />
         <ConfirmBook />
-        <MyAppointment />
+        <MyAppointments />
+        <Login/>
       </div>
       
     </>
