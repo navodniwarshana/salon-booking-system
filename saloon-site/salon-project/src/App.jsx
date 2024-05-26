@@ -1,19 +1,13 @@
 import React from 'react'
 import Navigation from './Pages/Navigation'
-import HomeWin from './Pages/HomeWin'
-import OurServices from './Pages/OurServices'
-import ContactUs from './Pages/ContactUs'
 import Footer from './Pages/Footer'
-import SideMenu from './Components/SideMenu'
+import BobyContent from './Pages/BobyContent'
 
-function App(props) {
+function App() {
   return (
    <div className=''>
        <Navigation />
-       <HomeWin> 
-       </HomeWin>
-       <OurServices/>
-       <ContactUs/>
+       <BobyContent/>
        <Footer/>
    
    </div>
