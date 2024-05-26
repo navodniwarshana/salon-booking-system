@@ -1,10 +1,8 @@
 import React from "react";
 import { FaBars } from "react-icons/fa6";
 import logo from "../img/logo.png";
-import AddBooking from "./Appointment/AddBooking";
-import ConfirmBook from "./Appointment/ConfirmBook";
-import MyAppointments from "./Appointment/MyAppointments";
-import Login from "./LoginActivitys/Login";
+
+import LoginWin from "./LoginWin"
 
 function Appointment() {
   return (
@@ -32,10 +30,7 @@ function Appointment() {
           </div>
         </div>
 
-        <AddBooking />
-        <ConfirmBook />
-        <MyAppointments />
-        <Login/>
+        <LoginWin/>
       </div>
       
     </>
