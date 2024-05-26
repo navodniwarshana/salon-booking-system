@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { FaBars,FaCircle } from "react-icons/fa6";
+import { FaCircle } from "react-icons/fa6";
+
+
 
 
 function AddBooking() {
@@ -37,18 +39,9 @@ function AddBooking() {
   return (
     <>
       <div className="font-playfir">
-        <div className="bg-black block font-playfir items-center text-white  min-w-[230px]">
-          <div className="flex ml-autoitems-center md:ml-auto md:flex ">
-            <h1>CONTACT</h1>
-          </div>
-          <div className="ml-auto flex justify-end">
-            <FaBars className="fill-white w-8 h-8 m-5" />
-          </div>
-          <div className="w-3/5 h-full bg-white border-slate-950">
-           
-          </div>
-        </div>
-        <form className="space-y-4 p-4 h-auto max-w-md mx-auto bg-white border-4 border-black rounded-2xl shadow-md">
+       
+ 
+        <form className="space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-white border-4 border-black rounded-2xl shadow-md">
               <div className="relative">
                 {formData.name && (
                   <label

@@ -1,16 +1,43 @@
-import React from 'react'
-import AddBooking from './Appointment/AddBooking'
-import ConfirmBook from './Appointment/ConfirmBook'
-import MyAppointment from './Appointment/MyAppointment'
+import React from "react";
+import { FaBars } from "react-icons/fa6";
+import logo from "../img/logo.png";
+import AddBooking from "./Appointment/AddBooking";
+import ConfirmBook from "./Appointment/ConfirmBook";
+import MyAppointment from "./Appointment/MyAppointment";
 
 function Appointment() {
   return (
+    <>
     <div>
-        <AddBooking/>
-        <ConfirmBook/>
-        <MyAppointment/>
-    </div>
-  )
+        <div
+          className="bg-black flex font-playfir
+        items-center text-white  min-w-[230px]"
+        >
+          <div>
+            <a href="#home">
+              <img src={logo} alt="" className="logo" />
+            </a>
+          </div>
+
+          <div
+            className=" ml-auto
+        items-center md:ml-auto hidden md:flex
+        "
+          >
+            <h1 className="text-3xl pr-16">Booking</h1>
+          </div>
+          <div className="ml-auto  flex justify-end">
+            <FaBars className="fill-white w-8 h-8 m-5" />
+          </div>
+        </div>
+
+        <AddBooking />
+        <ConfirmBook />
+        <MyAppointment />
+      </div>
+      
+    </>
+  );
 }
 
-export default Appointment
+export default Appointment;
