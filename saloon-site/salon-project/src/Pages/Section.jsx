@@ -87,7 +87,15 @@ const Section = () => {
       Go to second element inside container
     </Link>
 
- 
+    {/* Container with elements inside */}
+    <div className="element" id="containerElement">
+      <Element name="firstInsideContainer">
+        first element inside container
+      </Element>
+      <Element name="secondInsideContainer">
+        second element inside container
+      </Element>
+    </div>
 
     {/* Anchors to trigger scroll actions */}
     <a onClick={scrollToTop}>To the top!</a>

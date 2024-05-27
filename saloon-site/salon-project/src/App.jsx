@@ -1,26 +1,20 @@
 import React from 'react'
 import Navigation from './Pages/Navigation'
 import Footer from './Pages/Footer'
-import BodyContent from './Pages/BobyContent'
+import BobyContent from './Pages/BobyContent'
 import HomeWin from './Pages/HomeWin'
-import ContactUs from './Pages/ContactUs'
-import HairCutSection from './Pages/SubPges/OurServices/HairCutSection'
-import BeardSection from './Pages/SubPges/OurServices/BeardSection'
-import HeraderOurServices from './Pages/SubPges/OurServices/HeraderOurServices'
-import Section from './Pages/Section'
+import OurServices from './Pages/OurServices'
+import ContactUs from './Pages/SubPges/ContactUs'
 
 function App() {
   return (
    <div className='min-w-[375px]'>
        <Navigation />
-      
-       <BodyContent>
-          <HomeWin/>
-          <HeraderOurServices/>
-          <HairCutSection id='ourserv'/>
-          <BeardSection/>
+       <BobyContent>
+          <HomeWin  />
+          <OurServices/>
           <ContactUs/>
-       </BodyContent>
+       </BobyContent>
        <Footer/>
    
    </div>

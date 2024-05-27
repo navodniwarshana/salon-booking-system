@@ -4,30 +4,73 @@ import menu from "./img/menu.png";
 import NaviLink from "../Components/NaviLink";
 import { FaBars, FaUserLarge } from "react-icons/fa6";
 import SideMenu from "../Components/SideMenu";
-import OurServices from "./OurServices";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 function Navigation() {
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
+
   return (
     <>
       <div
         className="bg-black flex font-playfir
         items-center text-white  min-w-[230px]"
+        name="HOME"
       >
         <div>
-          <a href="/">
-            <img src={logo} alt="" className="logo" />
-          </a>
+          <img name="HOME" src={logo} alt="" className="logo cursor-pointer " />
         </div>
 
         <div
-          className="flex ml-auto
+          className="ml-auto
         items-center md:ml-auto hidden md:flex
         "
         >
-          <NaviLink linkname="HOME" url="/" />
-          <NaviLink linkname="OUR SERVICES" url="/OurServices.jsx" />
-          <NaviLink linkname="CONTACT" url="/ContactUs.jsx" />
+          <Link
+            className="cursor-pointer  my-2 text-lg font-bold hover:underline active:underline mx-4"
+            activeClass="active"
+            to="HOME"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+            onClick={scrollToTop}
+          >
+            HOME
+          </Link>
+          <Link
+            className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+            to="OURSERVICES"
+            spy={true}
+            smooth={true}
+            offset={0}
+            duration={500}
+          >
+            OURSERVICES
+          </Link>
+          <Link
+            className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+            to="CONTACT"
+            spy={true}
+            smooth={true}
+            offset={-250}
+            duration={500}
+          >
+            CONTACT
+          </Link>
 
+          <Link
+            className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+            to="CONTACT"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+          >
+            APPOINTMENTS
+          </Link>
+          <button onClick={<SideMenu />}>
           <a href="./SubPges/Profile.jsx">
             <FaUserLarge
               linkname="PROFILE"
@@ -35,12 +78,14 @@ function Navigation() {
               className="m-4 w-8 h-8"
             />
           </a>
+          </button>
+          
         </div>
         <div className="ml-auto md:hidden flex justify-end">
           <FaBars className="fill-white w-8 h-8 m-5" />
         </div>
       </div>
-     {/* <SideMenu /> */} 
+      
     </>
   );
 }

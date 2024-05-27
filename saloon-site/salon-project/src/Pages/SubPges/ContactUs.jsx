@@ -1,11 +1,12 @@
 import React from "react";
 import { FaLocationDot } from "react-icons/fa6";
+import { Element } from 'react-scroll'
 
 function ContactUspage() {
   return (
     <>
       
-      <div className="bg-white text-center my-10 text-black ">
+      <div className="bg-white text-center my-10 text-black " name='CONTACT'>
         <h1 className="text-3xl font-bold font-playfir my-4 md:text-4xl">
           CONTACT US
         </h1>

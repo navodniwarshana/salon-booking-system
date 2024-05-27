@@ -6,7 +6,11 @@ import {
   FaSquareWhatsapp,
 } from "react-icons/fa6";
 import {} from "react-icons/fa6";
+import { Element } from 'react-scroll'
+
 import BookNowBtn from "../Components/BookNowBtn";
+import { animateScroll as scroll } from 'react-scroll';
+
 
 function Footer() {
   const services = [
@@ -22,12 +26,18 @@ function Footer() {
     "Shave",
     "Luxury Shave & Beard Spa",
   ];
+  const scrollToTop = () => {
+    scroll.scrollToTop();
+  };
   return (
     <>
        <div className="bg-black text-white justify-around items-center text-center block md:flex p-4">
       <div className="justify-center items-center mb-8 w-full md:w-2/5 lg:w-1/3 p-4">
         <div className="flex justify-center items-center mb-8">
-          <img src={logo} alt="Logo" className="w-32 h-auto" />
+          <button >
+            <img onClick={scrollToTop} src={logo} alt="Logo" className="w-32 h-auto" />
+          </button>
+          
         </div>
         <p>
           Salon Inoka - Gent's Hair Salon, nestled in the heart of Dodawatta,
@@ -81,8 +91,15 @@ function Footer() {
   
   <div className="mt-2 md:mt-10"><BookNowBtn/></div>
 </div>
-
+        
     </div>
+
+    <div className="block text-center bg-black font-itim text-white">
+      <button onClick={scrollToTop} className="w-full  hover:bg-white hover:text-black">
+      Back To Top
+      </button>
+      </div>
+
     </>
   );
 }
