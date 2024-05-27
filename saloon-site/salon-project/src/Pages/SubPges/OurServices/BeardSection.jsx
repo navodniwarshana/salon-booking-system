@@ -23,7 +23,7 @@ function BeardSection() {
             <li className="my-2">Luxury Shave & Beard Spa</li>
           </ul>
 
-         <div className="mr-0 md:mr-16"> <BookNowBtn/></div>
+         <div className="mr-14 md:mr-16"> <BookNowBtn/></div>
          
         </div>
     

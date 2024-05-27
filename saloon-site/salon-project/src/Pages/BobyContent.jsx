@@ -1,18 +1,14 @@
 import React from 'react'
 import HomeWin from './HomeWin'
-import ContactUs from './ContactUs'
-import OurServices from './OurServices'
-import Appointment from './SubPges/Appointment'
 
-function BobyContent() {
+
+function BodyContent(props) {
   return (
-    <>
-    <HomeWin/>
-    <Appointment/>
-    <OurServices/>
-    <ContactUs/>
-    </>
+    <div>
+      
+      {props.children}
+    </div>
   )
 }
 
-export default BobyContent
+export default BodyContent

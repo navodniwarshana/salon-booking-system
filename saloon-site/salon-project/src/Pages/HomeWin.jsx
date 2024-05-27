@@ -6,7 +6,7 @@ function HomeWin(props) {
   return (
     <>
       <div
-          className=" font-playfir flex items-center bg-slate-400
+          className=" font-playfir flex items-center bg-white
         justify-center xl:h-5/6 lg:4/6 "
         >
             <div className="w-1/2 text-center  justify-center  p-5 py-5 hidden md:block">

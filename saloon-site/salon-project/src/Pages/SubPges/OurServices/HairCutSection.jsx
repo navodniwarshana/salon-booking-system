@@ -5,17 +5,12 @@ import BookNowBtn from '../../../Components/BookNowBtn';
 
 function HairCutSection() {
 
-  const hairCare =    <ul>
-  <li>Head Massage</li>
-  <li>Beard Styling</li>
-  <li>Shampoo & Conditioning</li>
-  <li>Hair/Beard Colouring</li>
-</ul>;
+
 
   return (
     <>
-       <div className='bg-black text-white flex flex-col md:flex-row justify-around items-center'>
-      <div className="w-full lg:w-1/3 mt-10 flex flex-col justify-center items-center py-10">
+       <div className='bg-black text-white flex flex-col md:flex-row justify-around items-center'  >
+      <div className="w-full lg:w-1/3 mt-10 flex flex-col justify-center items-center py-10" >
         <img className=" rounded-3xl w-3/5 md:w-4/5" src={haircut} alt="img1" />
 
         <div className="m-6 space-x-10 flex">

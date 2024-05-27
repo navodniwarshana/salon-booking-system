@@ -1,9 +1,10 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 
 function NaviLink(props) {
   return (
     <div >
-        <a className= 'm-2' href={props.url} >{props.linkname} </a>
+        <Link className= 'my-2 text-lg font-bold hover:underline active:underline mx-4'  to={props.url}>{props.linkname}</Link>
     </div>
   )
 }

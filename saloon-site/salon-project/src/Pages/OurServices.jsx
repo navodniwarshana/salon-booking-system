@@ -1,14 +1,23 @@
 import React from 'react'
-import HeraderOurServices from './SubPges/OurServices/HeraderOurServices'
+import Navigation from './Navigation'
+import Footer from './Footer'
 import HairCutSection from './SubPges/OurServices/HairCutSection'
 import BeardSection from './SubPges/OurServices/BeardSection'
+import BodyContent from './BobyContent'
+
 
 function OurServices() {
   return (
     <>
-      <HeraderOurServices/>
-      <HairCutSection/>
-      <BeardSection/>
+      <Navigation />
+       <BodyContent>          
+          <HairCutSection/>
+          <BeardSection/>
+      
+        </BodyContent>
+      <Footer/>
+       
+      
     </>
   
   )

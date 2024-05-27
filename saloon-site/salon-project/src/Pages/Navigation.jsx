@@ -4,6 +4,7 @@ import menu from "./img/menu.png";
 import NaviLink from "../Components/NaviLink";
 import { FaBars, FaUserLarge } from "react-icons/fa6";
 import SideMenu from "../Components/SideMenu";
+import OurServices from "./OurServices";
 
 function Navigation() {
   return (
@@ -13,7 +14,7 @@ function Navigation() {
         items-center text-white  min-w-[230px]"
       >
         <div>
-          <a href="#home">
+          <a href="/">
             <img src={logo} alt="" className="logo" />
           </a>
         </div>
@@ -23,11 +24,11 @@ function Navigation() {
         items-center md:ml-auto hidden md:flex
         "
         >
-          <NaviLink linkname="HOME" url="#home" />
-          <NaviLink linkname="OUR SERVICES" url="#SERVICES" />
-          <NaviLink linkname="CONTACT" url="#CONTACT" />
+          <NaviLink linkname="HOME" url="/" />
+          <NaviLink linkname="OUR SERVICES" url="/OurServices.jsx" />
+          <NaviLink linkname="CONTACT" url="/ContactUs.jsx" />
 
-          <a href="#profile">
+          <a href="./SubPges/Profile.jsx">
             <FaUserLarge
               linkname="PROFILE"
               url="#profile"
@@ -39,7 +40,7 @@ function Navigation() {
           <FaBars className="fill-white w-8 h-8 m-5" />
         </div>
       </div>
-      <SideMenu />
+     {/* <SideMenu /> */} 
     </>
   );
 }

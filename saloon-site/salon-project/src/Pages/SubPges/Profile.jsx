@@ -41,7 +41,7 @@ function Profile() {
               className="absolute text-white border-1 text-xl pl-6"
               htmlFor="age"
             >
-              Age
+              Number
             </label>
             <input
               className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 py-4 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
