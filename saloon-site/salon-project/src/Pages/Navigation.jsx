@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./img/logo.png";
 import menu from "./img/menu.png";
 import NaviLink from "../Components/NaviLink";
@@ -9,8 +9,11 @@ import { Link, animateScroll as scroll } from "react-scroll";
 function Navigation() {
   const scrollToTop = () => {
     scroll.scrollToTop();
-  };
+    
+  }
 
+  const [showNav,setShowNav]=useState(false)
+  
   return (
     <>
       <div
@@ -70,21 +73,25 @@ function Navigation() {
           >
             APPOINTMENTS
           </Link>
-          <button onClick={<SideMenu />}>
+          
           <a href="./SubPges/Profile.jsx">
             <FaUserLarge
               linkname="PROFILE"
               url="#profile"
-              className="m-4 w-8 h-8"
+              className="m-4 w-8 h-8 cursor-pointer"
             />
           </a>
-          </button>
+          
           
         </div>
+        
         <div className="ml-auto md:hidden flex justify-end">
-          <FaBars className="fill-white w-8 h-8 m-5" />
+          
+          <FaBars onClick={() => setShowNav(!showNav)} className="fill-white w-8 h-8 m-5 cursor-pointer" />
+  
         </div>
       </div>
+      <SideMenu show={showNav}/> 
       
     </>
   );

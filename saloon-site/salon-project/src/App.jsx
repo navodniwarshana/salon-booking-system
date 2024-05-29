@@ -1,24 +1,24 @@
-import React from 'react'
-import Navigation from './Pages/Navigation'
-import Footer from './Pages/Footer'
-import BobyContent from './Pages/BobyContent'
-import HomeWin from './Pages/HomeWin'
-import OurServices from './Pages/OurServices'
-import ContactUs from './Pages/SubPges/ContactUs'
+import React from "react";
+
+import BodyContent from "./Pages/BodyContent";
+import HomeWin from "./Pages/HomeWin";
+import OurServices from "./Pages/OurServices";
+import ContactUs from "./Pages/ContactUs";
+import Footer from "./Pages/Footer";
+import Navigation from "./Pages/Navigation";
 
 function App() {
   return (
-   <div className='min-w-[375px]'>
-       <Navigation />
-       <BobyContent>
-          <HomeWin  />
-          <OurServices/>
-          <ContactUs/>
-       </BobyContent>
-       <Footer/>
-   
-   </div>
-  )
+    <div>
+      <Navigation/>
+      <BodyContent>
+        <HomeWin />
+        <OurServices />
+        <ContactUs />
+      </BodyContent>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
