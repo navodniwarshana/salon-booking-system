@@ -6,10 +6,12 @@ import OurServices from "./Pages/OurServices";
 import ContactUs from "./Pages/ContactUs";
 import Footer from "./Pages/Footer";
 import Navigation from "./Pages/Navigation";
+import ScrollingHeader from "./Pages/SubPges/ScrollingHeader";
 
 function App() {
   return (
     <div>
+      {<ScrollingHeader/>}
       <Navigation/>
       <BodyContent>
         <HomeWin />
