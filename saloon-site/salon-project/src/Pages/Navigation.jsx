@@ -5,13 +5,22 @@ import { IoIosClose } from "react-icons/io";
 import { Link, animateScroll as scroll } from "react-scroll";
 import Headroom from "react-headroom";
 import SideMenu from "../Components/SideMenu";
+import NaviLink from "../Components/NaviLink";
 
-function Navigation() {
+
+
+function Navigation(props) {
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
 
   const [showNav, setShowNav] = useState(false);
+//---------------------------------------------------
+//const [bool,setbool]=useState(props.data)
+
+
+//---------------------------------------------------
+
 
   return (
     <>
@@ -19,10 +28,12 @@ function Navigation() {
         <div
           className="bg-black flex font-playfir items-center text-white min-w-[230px]"
           name="HOME"
-        >
+        >       
+
           <div>
             <img name="HOME" src={logo} alt="" className="logo cursor-pointer " />
           </div>
+          <button  className="bg-red-800">click me</button>
           <div className="ml-auto items-center md:ml-auto hidden md:flex">
             <Link
               className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
@@ -33,8 +44,9 @@ function Navigation() {
               offset={0}
               duration={500}
               onClick={scrollToTop}
-            >
-              HOME
+            ><NaviLink linkname=' HOME' url="/" />
+
+             
             </Link>
             <Link
               className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
@@ -56,19 +68,13 @@ function Navigation() {
             >
               CONTACT
             </Link>
-            <Link
-              className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
-              to="CONTACT"
-              spy={true}
-              smooth={true}
-              offset={50}
-              duration={500}
-            >
-              APPOINTMENTS
-            </Link>
-            <a href="./SubPges/Appointment.jsx">
-              <FaUserLarge className="m-4 w-8 h-8 cursor-pointer" />
-            </a>
+          
+            <NaviLink linkname="APPOINTMENTS" url="/AppointmentMenu.jsx" />
+
+            
+            <NaviLink  linkname={<FaUserLarge className="mx-4 w-8 h-8 cursor-pointer" />} /*url="/PopupWindowControl.jsx" *//>
+             
+           
           </div>
           <div className="ml-auto md:hidden flex justify-end">
             <FaBars onClick={() => setShowNav(!showNav)} className={`fill-white w-8 h-8 m-5 ${showNav ? 'hidden' : 'block'}`} />

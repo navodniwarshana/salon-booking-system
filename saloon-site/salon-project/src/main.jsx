@@ -8,6 +8,8 @@ import './index.css'
 import App from './App.jsx'
 import OurServices from './Pages/OurServices.jsx';
 import ContactUs from './Pages/ContactUs.jsx'
+import AppointmentMenu from './Pages/SubPges/AppointmentMenu.jsx';
+import PopupWindowControl from './Pages/SubPges/PopupWindowControl.jsx'
 
 const router = createBrowserRouter([
   {
@@ -21,6 +23,14 @@ const router = createBrowserRouter([
   {
     path: "/ContactUs.jsx",
     element: <ContactUs/> ,
+  },
+  {
+    path: "/AppointmentMenu.jsx",
+    element: <AppointmentMenu/>, //My- use a logic to booking are null, goto booking now
+  },
+  {
+    path: "/PopupWindowControl.jsx",
+    element: <PopupWindowControl/>,
   },
 ]);
 

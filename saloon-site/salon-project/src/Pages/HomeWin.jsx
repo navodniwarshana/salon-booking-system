@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCircle } from "react-icons/fa6";
 import img1 from "./img/img1.jpg";
+import ReactModal from "react-modal";
 
 function HomeWin(props) {
   return (
@@ -78,7 +79,6 @@ function HomeWin(props) {
                 >
                   BOOK NOW
                 </button>
-
                 <div className="m-6 space-x-10">
                   <button>
                     <FaCircle

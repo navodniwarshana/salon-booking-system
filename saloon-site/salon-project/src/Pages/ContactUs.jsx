@@ -11,7 +11,7 @@ function ContactUs() {
     <BodyContent>
       <ContactUspage/>
     </BodyContent>
-    <Footer/>
+   
     
     </>
   );
