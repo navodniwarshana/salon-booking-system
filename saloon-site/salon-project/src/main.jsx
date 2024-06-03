@@ -10,6 +10,8 @@ import OurServices from './Pages/OurServices.jsx';
 import ContactUs from './Pages/ContactUs.jsx'
 import AppointmentMenu from './Pages/SubPges/AppointmentMenu.jsx';
 import PopupWindowControl from './Pages/SubPges/PopupWindowControl.jsx'
+import { IoMdAddCircleOutline } from 'react-icons/io';
+import ResetPassword from './Pages/SubPges/LoginActivitys/ResetPassword.jsx'
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/PopupWindowControl.jsx",
     element: <PopupWindowControl/>,
+  },
+
+  {
+    path: "/ResetPassword.jsx",
+    element: <ResetPassword/>,
   },
 ]);
 

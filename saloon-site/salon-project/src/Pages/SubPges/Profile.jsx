@@ -1,17 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
 
 
-function Profile() {
+function Profile(props) {
+  //const [winVisible,setwinVisible] =useState(props.WinVisibel);
+
   return (
-    <div className="">
-      <form className="space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-gray-600 border-4 border-black rounded-2xl shadow-md">
+    <div className={`${props.children===0 ? 'block':'hidden'}`}>
+      <form className={`  space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-black opacity-75 border-4 border-black rounded-2xl shadow-md`}>
         <div className="flex justify-between my-4 mx-5 ">
           <button>
             <FaAngleLeft className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
           </button>
-
+      
           <h1 className="text-center font-playfir text-white font-bold text-3xl">
             Profile
           </h1>

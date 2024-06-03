@@ -11,24 +11,33 @@ import ReactModal from "react-modal";
 import PopupWindowControl from "./Pages/SubPges/PopupWindowControl";
 
 function App() {
+  const [showModal, setShowModal] = useState(false);
   
-const [showModal,setShowModal]= useState(false)
-
+  showModal?document.body.style.overflow="hidden":document.body.style.overflow="auto";
+  function modalVisible() {
+    setShowModal(!showModal);
+    //console.log(setShowModal+" show modal")
+  }
+  //onclose={() => setShowModal(false)} 
 
   return (
-    <div className="h-screen flex flex-col items-center gap-6 bg-[#3a3d46] text-white">
-      <h1>get the book</h1>
-      <button onClick={()=>setShowModal(true)} className="bg-red-800 p-4">get the book</button>
-      {showModal && <PopupWindowControl onclose={()=>setShowModal(false)}/>}
-      {<ScrollingHeader/>}
-      <Navigation />
-      <BodyContent>
-        <HomeWin />
-        <OurServices />
-        <ContactUs />
-      </BodyContent>
-      <Footer />
-    </div>
+    <>
+      <div>
+        {<ScrollingHeader modalVisible={modalVisible}/>}
+        <Navigation modalVisible={modalVisible}/>
+        <BodyContent>
+          <HomeWin />
+          <OurServices />
+          <ContactUs />
+        </BodyContent>
+        <Footer />
+        {showModal && (
+          <PopupWindowControl modalVisible={modalVisible} />
+          
+
+        )} 
+        </div>
+    </>
   );
 }
 

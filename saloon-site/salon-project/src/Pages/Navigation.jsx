@@ -9,22 +9,22 @@ import NaviLink from "../Components/NaviLink";
 
 
 
-function Navigation(props) {
+function Navigation({modalVisible}) {
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
 
   const [showNav, setShowNav] = useState(false);
 //---------------------------------------------------
-//const [bool,setbool]=useState(props.data)
-
+//const popup=props.modalVisible
+//onsole.log(popup+" popup **************************")
 
 //---------------------------------------------------
 
 
   return (
     <>
-      <Headroom>
+      <Headroom >
         <div
           className="bg-black flex font-playfir items-center text-white min-w-[230px]"
           name="HOME"
@@ -33,7 +33,7 @@ function Navigation(props) {
           <div>
             <img name="HOME" src={logo} alt="" className="logo cursor-pointer " />
           </div>
-          <button  className="bg-red-800">click me</button>
+         
           <div className="ml-auto items-center md:ml-auto hidden md:flex">
             <Link
               className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
@@ -71,9 +71,11 @@ function Navigation(props) {
           
             <NaviLink linkname="APPOINTMENTS" url="/AppointmentMenu.jsx" />
 
-            
-            <NaviLink  linkname={<FaUserLarge className="mx-4 w-8 h-8 cursor-pointer" />} /*url="/PopupWindowControl.jsx" *//>
-             
+            <button onClick={modalVisible}>
+            <NaviLink onClick={modalVisible} linkname={<FaUserLarge className="mx-4 w-8 h-8 cursor-pointer" />} />
+            </button>
+              
+          
            
           </div>
           <div className="ml-auto md:hidden flex justify-end">

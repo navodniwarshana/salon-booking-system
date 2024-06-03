@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaUserLarge } from "react-icons/fa6";
 import NaviLink from "./NaviLink";
 import BookNowBtn from "./BookNowBtn";
@@ -40,12 +40,17 @@ useEffect(() => {
 function abc() {
   setClassName('bg-blue-800')
 }
+const modalRef = useRef();
 
-      
-  console.log(show +"  in sidemenu " );
+const closeMenu=(e)=>{
+  if(modalRef.current === e.target)
+   handleClick();
+  }
+ 
+  //console.log(show +"  in sidemenu " );
   return (
     <> 
-      <div id="perant" className= {`fixed top-0 mt-16 right-0 w-64   rounded-es-3xl transition-all duration-1000  justify-end block md:hidden ${fun ? 'transform translate-x-0' : 'transform translate-x-full'}`}>    
+      <div id="perant" onClick={closeMenu} className= {`fixed top-0 mt-16 right-0 w-64 rounded-es-3xl transition-all duration-1000  justify-end block md:hidden ${fun ? 'transform translate-x-0 ' : 'transform translate-x-full '}`}>    
         <div className=" h-5/5  rounded-es-3xl bg-black fixed ">
           <a href="#profile">
             <FaUserLarge
