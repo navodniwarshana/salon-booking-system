@@ -9,6 +9,7 @@ import Navigation from "./Pages/Navigation";
 import ScrollingHeader from "./Pages/SubPges/ScrollingHeader";
 import ReactModal from "react-modal";
 import PopupWindowControl from "./Pages/SubPges/PopupWindowControl";
+import Appointment from "./Pages/SubPges/Appointment";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -28,6 +29,7 @@ function App() {
         <BodyContent>
           <HomeWin />
           <OurServices />
+          <Appointment/>
           <ContactUs />
         </BodyContent>
         <Footer />

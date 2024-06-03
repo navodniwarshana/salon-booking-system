@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
 
-function ResetPassword(props) {
+function ResetPassword({ setWinVisible }) {
   const [emailOrPhone, setEmailOrPhone] = useState("");
   const [otp, setOtp] = useState("");
   const [newPassword, setNewPassword] = useState("");
@@ -19,14 +19,24 @@ function ResetPassword(props) {
       console.log("Passwords do not match");
     }
   };
+  const handleClick = () => {
+    setWinVisible(1); // Update to show the ResetPassword component
+  };
 
+  const handleBack = () => {
+    setWinVisible(1); // Navigate back to the previous window (e.g., login or home)
+  };
+  
+  const handleClose = () => {
+    setWinVisible(-1); // Close the modal or reset the visibility state
+  };
   return (
     <>
-      <div className={`${props.children === 2 ? "block" : "hidden"}`}>
+      <div>
         <form className="space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-black opacity-75 border-4 border-black rounded-2xl shadow-md">
           <div className="flex justify-between my-4 mx-5">
             <button>
-              <FaAngleLeft className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+              <FaAngleLeft onClick={handleBack} className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
             </button>
 
             <h1 className="text-center font-playfir text-white font-bold text-2xl">
@@ -34,7 +44,7 @@ function ResetPassword(props) {
             </h1>
 
             <button>
-              <IoIosClose className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+              <IoIosClose onClick={handleClose} className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
             </button>
           </div>
 
@@ -127,6 +137,20 @@ function ResetPassword(props) {
                 Reset Password
               </button>
             </div>
+            <div className="flex items-center justify-center text-center rounded-full p-1 my-8">
+              <button
+                className="bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-1/2 rounded-full border-2 border-white"
+                type="button"
+                onClick={handleClick}
+              >
+                Log In
+              </button>
+             
+            </div>
+            <p onClick={() => handleClick("forgotPassword")}
+                    className="m-2 text-white font-itim text-center text-lg hover:text-xl hover:font-bold active:underline">
+                    Log in with password
+                  </p>
           </div>
         </form>
       </div>

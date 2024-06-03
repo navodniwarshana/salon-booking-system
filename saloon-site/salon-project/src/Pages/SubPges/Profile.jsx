@@ -3,15 +3,31 @@ import { FaAngleLeft } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
 
 
-function Profile(props) {
+function Profile({ setWinVisible }) {
   //const [winVisible,setwinVisible] =useState(props.WinVisibel);
-
+  const handleClick = (action) => {
+    if (action === "forgotPassword") {
+      setWinVisible(2); // Show ResetPassword component
+  
+    } else if (action === "SignUp") {
+      setWinVisible(3); // Show SignUp component
+    }
+     else if (action === "GoBack") {
+      setWinVisible(-1); // Show SignUp component
+    }
+     else if (action === "CloseWin") {
+      setWinVisible(-1); // Show SignUp component
+    }
+     else if (action === "LoginTOProfile") {
+      setWinVisible(3); // Show SignUp component
+    }
+  };
   return (
-    <div className={`${props.children===0 ? 'block':'hidden'}`}>
+    <div>
       <form className={`  space-y-4 mt-4 p-4 h-auto max-w-md mx-auto bg-black opacity-75 border-4 border-black rounded-2xl shadow-md`}>
         <div className="flex justify-between my-4 mx-5 ">
           <button>
-            <FaAngleLeft className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+            <FaAngleLeft onClick={() => handleClick("GoBack")} className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
           </button>
       
           <h1 className="text-center font-playfir text-white font-bold text-3xl">
@@ -19,7 +35,7 @@ function Profile(props) {
           </h1>
 
           <button>
-            <IoIosClose className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+            <IoIosClose onClick={() => handleClick("CloseWin")}  className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
           </button>
         </div>
 

@@ -1,78 +1,42 @@
-import React, { useEffect, useRef, useState } from "react";
-import Profile from "./Profile";
+  import React, { useEffect, useRef, useState } from "react";
+  import Profile from "./Profile";
+  import ResetPassword from "./LoginActivitys/ResetPassword";
+  import SignUp from "./LoginActivitys/SignUp";
+  import Login from "./LoginActivitys/Login";
+  import Appointment from "./Appointment"
 
-import ResetPassword from "./LoginActivitys/ResetPassword";
-import SignUp from "./LoginActivitys/SignUp";
-import Login from "./LoginActivitys/Login";
+  function PopupWindowControl({ modalVisible }) {
+    const modalRef = useRef();
 
-function PopupWindowControl({ modalVisible }) {
-  const modalRef = useRef();
+    const CloseModal = (e) => {
+      if (modalRef.current === e.target) {
+        modalVisible();
+      }
+    };
 
-  const CloseModal = (e) => {
-    if (modalRef.current === e.target) {
-      modalVisible();
-    }
-  };
+    const [winVisible, setWinVisible] = useState(1);
+    const isLogin = false;
 
- // const arr = [<SignUp />, <Login />, <ResetPassword />, <Profile />];
-  
+    useEffect(() => {
+      document.body.style.overflow = modalVisible ? "hidden" : "hidden";
+    }, [modalVisible]);
 
-  const [i, setI] = useState(0);
+    return (
+      <div
+        ref={modalRef}
+        onClick={CloseModal}
+        className="fixed items-center justify-center inset-0 pt-20 p-40 bg-opacity-70 backdrop-blur-sm overflow-auto"
+      >
+        {winVisible === -1 && modalVisible()}
+        {winVisible === 0 && <SignUp setWinVisible={setWinVisible} />}
+        {winVisible === 1 && <Login setWinVisible={setWinVisible} />}
+        {winVisible === 2 && <ResetPassword setWinVisible={setWinVisible} />}
+        {winVisible === 3 && <Profile setWinVisible={setWinVisible} />}
+        {winVisible === 4 || <Appointment.jsx />}
+      </div>
+    );
 
-  const [winVisible, setWinVisible] = useState(1);
-  const isLogin = false;
+    
+  }
 
-  //useEffect(() => {
-  //  if (isLogin) {
-  //    setI(0);
-  //  } else {
-  //    setI(1);
-  //  }
-  //}, [isLogin]);
-
-  useEffect(() => {
-    switch (winVisible) {
-      case 0:
-        setI(0);
-        break;
-      case 1:
-        setI(1);
-        break;
-      case 2:
-        setI(2);
-        break;
-      case 3:
-        setI(3);
-        break;
-      default:
-        break;
-    }
-  }, [winVisible]);
-
-  useEffect(() => {
-    document.body.style.overflow = modalVisible ? "hidden" : "hidden";
-  }, [modalVisible]);
-
-  const [childData, setChildData] = useState('');
-
-  const handleDataFromChild = (data) => {
-    setChildData(data);
-    winVisible(data);
-  };
-
-  return (
-    <div
-      ref={modalRef}
-      onClick={CloseModal}
-      className="fixed items-center justify-center inset-0 p-20 bg-opacity-70 backdrop-blur-sm overflow-auto"
-    >
-      {/*React.cloneElement(arr[i], { setWinVisible })*/}
-      <SignUp>{winVisible}</SignUp>
-      <Login>{{winVisible} sendDataToParent={handleDataFromChild}}</Login>
-      <ResetPassword >{winVisible}</ResetPassword>
-      <Profile>{winVisible}</Profile>
-    </div>
-  );
-}
-
-export default PopupWindowControl;
+  export default PopupWindowControl;
