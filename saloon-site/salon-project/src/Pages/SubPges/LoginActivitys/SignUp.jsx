@@ -41,7 +41,7 @@ function SignUp({ setWinVisible }) {
         <form className="space-y-4 mt-4 px-16 h-auto max-w-md mx-auto bg-black opacity-75 border-4 border-black rounded-2xl shadow-md">
           <div className="flex justify-between my-4 mx-5">
             <button>
-              <FaAngleLeft onClick={() => handleClick("GoBack")} className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+              <FaAngleLeft onClick={() => handleClick("GoBack")} className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
             </button>
 
             <h1 className="text-center font-playfir text-white font-bold text-2xl">
@@ -49,7 +49,7 @@ function SignUp({ setWinVisible }) {
             </h1>
 
             <button>
-              <IoIosClose onClick={() => handleClick("CloseWin")} className="w-8 h-8 border-2 bg-white border-black hover:fill-white hover:bg-black rounded-full" />
+              <IoIosClose onClick={() => handleClick("CloseWin")} className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
             </button>
           </div>
 

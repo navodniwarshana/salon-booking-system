@@ -1,14 +1,16 @@
 import React from "react";
 import { FaBars } from "react-icons/fa6";
 import logo from "../img/logo.png";
-
 import LoginWin from "./LoginWin"
+import AddBooking from './Appointment/AddBooking'
+import ConfirmBook from './Appointment/ConfirmBook'
+import MyAppointments from './Appointment/MyAppointments'
 
 function Appointment() {
   return (
     <>
     <div>
-        <div
+       {/* <div
           className="bg-black flex font-playfir
         items-center text-white  min-w-[230px]"
         >
@@ -28,9 +30,12 @@ function Appointment() {
           <div className="ml-auto  flex justify-end">
             <FaBars className="fill-white w-8 h-8 m-5" />
           </div>
-        </div>
+        </div>*/}
 
-        <LoginWin/>
+       
+        <AddBooking/>
+        <ConfirmBook/>
+        <MyAppointments/>
       </div>
       
     </>
