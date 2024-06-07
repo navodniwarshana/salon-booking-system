@@ -71,7 +71,7 @@ function Navigation({ modalVisible, setWinVisible }) {
             <IoIosClose onClick={() => setShowNav(!showNav)} className={`${showNav ? 'w-9 h-9 mr-5 border-2 bg-black border-white cursor-pointer hover:fill-black hover:bg-white rounded-full' : 'hidden'}`} />
           </div>
         </div>
-        <SideMenu show={showNav} setWinVisible={setWinVisible} />
+        <SideMenu show={showNav} setWinVisible={setWinVisible} modalVisible={modalVisible} showNav={showNav} />
         <div className="w-full h-0.5 bg-white"></div>
       </Headroom>
     </>

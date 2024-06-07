@@ -38,19 +38,6 @@ function PopupWindowControl({ modalVisible, content }) {
     }
   }, [content]);
 
-  useEffect(() => {
-  
-    if (abccd==="APPOINTMENTS") {
-      setWinVisible(4);
-    }else{
-      
-        setWinVisible(3);
-      }
-      
-    
-  }, [content]);
-
-
   return ( 
     <div
       ref={modalRef}

@@ -19,13 +19,19 @@ function App() {
     setShowModal(!showModal);
     setModalContent(content);
   }
-  const abcd=useState("abc use in app")
+  const content = (e) => {
+    if (modalContent === "APPOINTMENTS") {
+      content("APPOINTMENTS");
+    }
+  };
+  
+ 
   return (
     <>
       <div>
         <ScrollingHeader modalVisible={modalVisible} />
         <Navigation modalVisible={modalVisible} />
-        <SideMenu abcd={abcd}/>
+        <SideMenu modalVisible={modalVisible}/>
         <BodyContent>
           <HomeWin />
           <OurServices />
@@ -33,11 +39,12 @@ function App() {
           <ContactUs />
         </BodyContent>
         <Footer />
-        {showModal && <PopupWindowControl modalVisible={modalVisible} content={modalContent} abcd={abcd} />}
+        {showModal && <PopupWindowControl modalVisible={modalVisible} content={modalContent} />}
+
         
       </div>
     </>
   );
 }
 
-export default App;
+export default App; 

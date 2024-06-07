@@ -4,12 +4,12 @@ import NaviLink from "./NaviLink";
 import BookNowBtn from "./BookNowBtn";
 import { Link, animateScroll as scroll } from "react-scroll";
 
-function SideMenu({ show, setWinVisible, abcd }) {
+function SideMenu({ show, modalVisible ,setShowNav }) {
   const scrollToTop = () => {
     scroll.scrollToTop();
   };
   // // console.log(show);
- // alert(abcd);
+  
   const fun = show;
   const [num, setnum] = useState(fun);
   const [className, setClassName] = useState("bg-white");
@@ -41,20 +41,8 @@ function SideMenu({ show, setWinVisible, abcd }) {
   const closeMenu = (e) => {
     if (modalRef.current === e.target) handleClick();
   };
-  //const [modalVisible2,setModalVisible2]=useState("");
 
-  const setModalVisible2 = (action) => {
-    if (action === "Profile") {
-      abcd("Profile");
-      abcd = 123;
-    } else if (action === "APPOINTMENTS") {
-      abcd("APPOINTMENTS");
-    } else {
-      alert("+++++++++++++++++++++++++++++++++");
-    }
-  };
 
-  //console.log(show +"  in sidemenu " );
   return (
     <>
       <div
@@ -66,12 +54,12 @@ function SideMenu({ show, setWinVisible, abcd }) {
       >
         <div className=" h-5/5  rounded-es-3xl bg-black fixed ">
           <FaUserLarge
-            onClick={() => setModalVisible2("Profile")}
+            onClick={() => modalVisible("PROFILE") } 
+         
             linkname="PROFILE"
             url="#profile"
             className="mx-20 size-28 bg-white rounded-full cursor-pointer"
           />
-
           <div
             className="text-white ml-auto text-2xl my-4 
                items-center md:ml-auto font-playfir"
@@ -111,7 +99,7 @@ function SideMenu({ show, setWinVisible, abcd }) {
               </Link>
 
               <li
-                onClick={() => setModalVisible2("APPOINTMENTS")}
+                onClick={() => modalVisible("APPOINTMENTS")}
                 className="pb-4 px-4 pt-4 hover:bg-slate-800 cursor-pointer my-2 text-lg font-bold active:underline mx-4"
               >
                 APPOINTMENTS
