@@ -6,15 +6,13 @@ function Login({ setWinVisible }) {
   const handleClick = (action) => {
     if (action === "forgotPassword") {
       setWinVisible(2); // Show ResetPassword component
-    } else if (action === "SignUp") {
-      setWinVisible(0); // Show SignUp component
+
     } else if (action === "GoBack") {
       setWinVisible(-1); // Close the modal
     } else if (action === "CloseWin") {
       setWinVisible(-1); // Close the modal
-    } else if (action === "LoginTOProfile") {
-      setWinVisible(3); // Show Profile component
     }
+    
   };
 
   return (

@@ -37,7 +37,7 @@ function App() {
         <Navigation modalVisible={modalVisible} /></Headroom>
         <SideMenu modalVisible={modalVisible}/>
         <BodyContent>
-          <HomeWin />
+          <HomeWin modalVisible={modalVisible} content={modalContent} />
           <OurServices />
          
           <ContactUs />

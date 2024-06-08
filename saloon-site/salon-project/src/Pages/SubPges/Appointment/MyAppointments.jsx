@@ -2,12 +2,24 @@ import React from 'react'
 import { FaAngleLeft,FaCircle } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
 
-function MyAppointments() {
+function MyAppointments({setWinVisible}) {
+  const handleClick = (action) => {
+    if (action === "forgotPassword") {
+      setWinVisible(2); // Show ResetPassword component
+    } else if (action === "SignUp") {
+      setWinVisible(0); // Show SignUp component
+    } else if (action === "GoBack") {
+      setWinVisible(-1); // Close the modal
+    } else if (action === "CloseWin") {
+      setWinVisible(-1); // Close the modal
+    } else if (action === "LoginTOProfile") {
+      setWinVisible(3); // Show Profile component
+    }}
   return (
     <div className="space-y-4 mt-4 p-4 max-w-md mx-auto bg-black opacity-75 border-4 rounded-2xl md:border-black shadow-md">
         <div className="flex justify-around">
           <button>
-            <FaAngleLeft className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
+            <FaAngleLeft onClick={() => handleClick("CloseWin")} className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
           </button>
 
           <h1 className="text-center text-white font-bold text-2xl font-playfir">My Appointments</h1>
