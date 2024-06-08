@@ -56,25 +56,38 @@ function HomeWin(props) {
               <img className="w-4/5 rounded-3xl " src={img1} alt="img1" />
             </div>
           {/*-------------------------------mobile view---------------------------*/}  
+          
             <div
-              className="bg-cover opacity-100 rounded-3xl mt-10 mb-5 mx-5 md:hidden flex justify-center  items-center text-center size-full min-w-[230px]"
+              className="bg-cover  rounded-3xl mt-10 mb-5 mx-5 md:hidden flex justify-center  items-center text-center size-full min-w-[230px]"
               style={{ backgroundImage: `url(${img1})` }}
             >
-              <div className="block text-center  justify-center   pt-20 ">
+              <div className="block text-center  justify-center text-white  pt-20 "style={{
+                  textShadow: `
+                  1px 1px 0 #000000, 
+                  -1px -1px 0 #000000, 
+                  -1px 1px 0 #000000, 
+                  1px -1px 0 #000000,
+                  1px 0 0 #000000, 
+                  0 1px 0 #000000, 
+                  -1px 0 0 #000000, 
+                  0 -1px 0 #000000
+                `
+                }}>
                 <h1
-                  className=" font-bold text-neutral-700 mt-16 
-               text-3xl"
+                  className=" font-bold py-4 mt-16 
+               text-3xl"  
+                
                 >
                   SALON INOKA
                 </h1>
                 <h2
-                  className=" font-bold text-neutral-700
+                  className=" font-bold py-4
               xl:text-4xl lg:text-3xl md:text-2xl "
                 >
                   Where Your Hair <br /> Dreams Come True
                 </h2>
                 <button
-                  className="bg-black text-white text-xl font-playfir
+                  className="bg-black text-white text-xl font-playfir border-2 border-white
                font-bold p-2 px-3 m-2 rounded-xl lg:text-lg md:text-base "
                 >
                   BOOK NOW
@@ -82,7 +95,7 @@ function HomeWin(props) {
                 <div className="m-6 space-x-10">
                   <button>
                     <FaCircle
-                      className=" opacity-40 hover:opacity-100 
+                      className=" opacity-40 hover:opacity-100
                   transition-opacity duration-300 xl:size-8 lg:size-7 md:size-6"
                     />
                   </button>

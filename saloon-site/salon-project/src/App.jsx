@@ -8,6 +8,7 @@ import Navigation from "./Pages/Navigation";
 import ScrollingHeader from "./Pages/SubPges/ScrollingHeader";
 import PopupWindowControl from "./Pages/SubPges/PopupWindowControl";
 import SideMenu from "./Components/SideMenu";
+import Headroom from "react-headroom";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -22,15 +23,18 @@ function App() {
   const content = (e) => {
     if (modalContent === "APPOINTMENTS") {
       content("APPOINTMENTS");
+    }else if(modalContent === "AddBooking"){
+      content("AddBooking");
     }
   };
   
  
   return (
     <>
-      <div>
+      <div className="min-w-[500px]">
         <ScrollingHeader modalVisible={modalVisible} />
-        <Navigation modalVisible={modalVisible} />
+        <Headroom>
+        <Navigation modalVisible={modalVisible} /></Headroom>
         <SideMenu modalVisible={modalVisible}/>
         <BodyContent>
           <HomeWin />

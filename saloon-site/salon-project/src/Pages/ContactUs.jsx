@@ -7,7 +7,7 @@ import BodyContent from "./BodyContent";
 function ContactUs() {
   return (
     <>
-    <Navigation/>
+   
     <BodyContent>
       <ContactUspage/>
     </BodyContent>

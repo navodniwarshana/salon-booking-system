@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./img/logo.png";
 import { FaBars, FaUserLarge } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
@@ -13,20 +13,29 @@ function Navigation({ modalVisible, setWinVisible }) {
   };
   const [showNav, setShowNav] = useState(false);
 
-  
-  
-  
- 
+  // Add scroll event listener to toggle showNav
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowNav(false);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <Headroom>
+
         <div className="bg-black flex font-playfir items-center text-white min-w-[230px]" name="HOME">
           <div>
             <img name="HOME" src={logo} alt="" className="logo cursor-pointer" />
           </div>
-          <div className="ml-auto items-center md:ml-auto hidden md:flex">
+          <div className="ml-auto items-center lg:text-lg md:text-base font-bold md:ml-auto hidden md:flex">
             <Link
-              className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+              className="cursor-pointer my-2 hover:underline active:underline mx-4"
               activeClass="active"
               to="HOME"
               spy={true}
@@ -35,10 +44,10 @@ function Navigation({ modalVisible, setWinVisible }) {
               duration={500}
               onClick={scrollToTop}
             >
-              <NaviLink linkname=" HOME" url="/" />
+              <NaviLink linkname="HOME" url="/" />
             </Link>
             <Link
-              className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+              className="cursor-pointer my-2  hover:underline active:underline mx-4"
               to="OURSERVICES"
               spy={true}
               smooth={true}
@@ -48,7 +57,7 @@ function Navigation({ modalVisible, setWinVisible }) {
               OUR SERVICES
             </Link>
             <Link
-              className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4"
+              className="cursor-pointer my-2  hover:underline active:underline mx-4"
               to="CONTACT"
               spy={true}
               smooth={true}
@@ -58,7 +67,7 @@ function Navigation({ modalVisible, setWinVisible }) {
               CONTACT
             </Link>
 
-            <button onClick={() => modalVisible("APPOINTMENTS")} className="cursor-pointer my-2 text-lg font-bold hover:underline active:underline mx-4">
+            <button onClick={() => modalVisible("APPOINTMENTS")} className="cursor-pointer my-2  hover:underline active:underline mx-4">
               APPOINTMENTS
             </button>
 
@@ -71,9 +80,9 @@ function Navigation({ modalVisible, setWinVisible }) {
             <IoIosClose onClick={() => setShowNav(!showNav)} className={`${showNav ? 'w-9 h-9 mr-5 border-2 bg-black border-white cursor-pointer hover:fill-black hover:bg-white rounded-full' : 'hidden'}`} />
           </div>
         </div>
-        <SideMenu show={showNav} setWinVisible={setWinVisible} modalVisible={modalVisible} showNav={showNav} />
-        <div className="w-full h-0.5 bg-white"></div>
-      </Headroom>
+      
+      <SideMenu show={showNav} setWinVisible={setWinVisible} modalVisible={modalVisible} setShowNav={setShowNav} />
+      <div className="w-full h-0.5 bg-white"></div>
     </>
   );
 }

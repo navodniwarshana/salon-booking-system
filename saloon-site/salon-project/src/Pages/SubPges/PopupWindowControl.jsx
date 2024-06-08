@@ -42,7 +42,7 @@ function PopupWindowControl({ modalVisible, content }) {
     <div
       ref={modalRef}
       onClick={CloseModal}
-      className="fixed items-center justify-center inset-0 p-20 bg-opacity-70 backdrop-blur-sm overflow-auto"
+      className="fixed items-center justify-center inset-0 p-20 bg-opacity-70 backdrop-blur-sm overflow-auto min-w-[530px]"
     >
       {winVisible === -1 && modalVisible()}
       {winVisible === 0 && <SignUp setWinVisible={setWinVisible} />}
