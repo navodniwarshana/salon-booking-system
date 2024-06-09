@@ -31,18 +31,18 @@ function App() {
  
   return (
     <>
-      <div className="min-w-[500px]">
+      <div className="min-w-[320px]">
         <ScrollingHeader modalVisible={modalVisible} />
         <Headroom>
         <Navigation modalVisible={modalVisible} /></Headroom>
         <SideMenu modalVisible={modalVisible}/>
-        <BodyContent>
+        <BodyContent modalVisible={modalVisible} content={modalContent} >
           <HomeWin modalVisible={modalVisible} content={modalContent} />
-          <OurServices />
+          <OurServices modalVisible={modalVisible} content={modalContent} />
          
           <ContactUs />
         </BodyContent>
-        <Footer />
+        <Footer modalVisible={modalVisible} content={modalContent} />
         {showModal && <PopupWindowControl modalVisible={modalVisible} content={modalContent} />}
 
         

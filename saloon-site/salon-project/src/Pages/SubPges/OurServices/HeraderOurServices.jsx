@@ -1,7 +1,7 @@
 import React from 'react'
 import { Element } from 'react-scroll'
 
-function HeraderOurServices() {
+function HeraderOurServices(props) {
   return (
    <>
    <div name='OURSERVICES'

@@ -42,13 +42,14 @@ function AddBooking() {
       <div className="font-playfir">
      
  
-        <form className="space-y-4 mt-4 p-4 max-w-md mx-auto bg-black opacity-75 border-4 rounded-2xl md:border-black shadow-md">
+        <form className="space-y-4 mt-4 p-4 mx-auto bg-black opacity-75 border-4 rounded-2xl md:border-black shadow-md 
+      min-w-[320px]">
         <div className="flex justify-between my-4 mx-5">
           <button>
             <FaAngleLeft className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
           </button>
 
-          <h1 className="text-center font-playfir text-white font-bold text-2xl">New Appointment</h1>
+          <h1 className="text-center font-playfir px-2 text-white font-bold text-xl sm:text-2xl ">New Appointment</h1>
 
           <button>
          

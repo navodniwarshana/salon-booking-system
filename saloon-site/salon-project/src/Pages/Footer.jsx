@@ -10,9 +10,10 @@ import { Element } from 'react-scroll'
 
 import BookNowBtn from "../Components/BookNowBtn";
 import { animateScroll as scroll } from 'react-scroll';
+import AvailableBtn from "../Components/AvailableBtn";
 
 
-function Footer() {
+function Footer(props) {
   const services = [
     "Cut and Hair Care",
     "Head Massage",
@@ -89,7 +90,9 @@ function Footer() {
     We are available <br /> 7 days a week from <br /> 8.30am to 5.30pm
   </p>
   
-  <div className="mt-2 md:mt-10"><BookNowBtn/></div>
+  <div className="mt-2 md:mt-10">
+  <AvailableBtn modalVisible={props.modalVisible} />
+    </div>
 </div>
         
     </div>

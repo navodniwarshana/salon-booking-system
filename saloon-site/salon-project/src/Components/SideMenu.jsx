@@ -63,7 +63,7 @@ function SideMenu({ show, modalVisible, setShowNav }) {
         ref={modalRef}
         onClick={closeMenu}
         className={`fixed top-0 mt-16 right-0 w-64 rounded-es-3xl transition-all duration-1000 justify-end block md:hidden ${
-          fun ? "transform translate-x-0 " : "transform translate-x-full "
+          fun ? "transform translate-x-0 " : "transform translate-x-full hidden"
         }`}
       >
         <div className="h-5/5 rounded-es-3xl bg-black fixed">
@@ -117,7 +117,7 @@ function SideMenu({ show, modalVisible, setShowNav }) {
               </li>
             </ul>
             <div className="ml-2 px-10">
-              <BookNowBtn />
+              <BookNowBtn modalVisible={modalVisible} />
             </div>
           </div>
         </div>

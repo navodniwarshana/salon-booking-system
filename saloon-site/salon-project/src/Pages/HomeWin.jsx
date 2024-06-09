@@ -47,12 +47,7 @@ function HomeWin(props) {
           >
             Where Your Hair <br /> Dreams Come True
           </h2>
-          <button
-            className="bg-black text-white text-xl font-playfir
-               font-bold p-2 px-3 m-4 rounded-xl lg:text-lg md:text-base "
-          >
-            BOOK NOW
-          </button>
+          <BookNowBtn modalVisible={props.modalVisible} />
 
           <div className="m-6 space-x-10">
             <button>
@@ -92,7 +87,7 @@ function HomeWin(props) {
               <img
                 className={` ${
                   acttiveImg === i ? "block" : "hidden"
-                } w-4/5 h-96 rounded-3xl transition-opacity duration-300 `}
+                } w-4/5  rounded-3xl transition-opacity duration-300 `}
                 src={item.url}
                 alt={item.alt}
                 key={item.id}
@@ -135,7 +130,7 @@ function HomeWin(props) {
             >
               Where Your Hair <br /> Dreams Come True
             </h2>
-            <BookNowBtn modalVisible={props.modalVisible} />{" "}
+            <BookNowBtn modalVisible={props.modalVisible} />
             {/* Pass modalVisible as a prop */}
             <div className="m-6 space-x-10">
               <button>

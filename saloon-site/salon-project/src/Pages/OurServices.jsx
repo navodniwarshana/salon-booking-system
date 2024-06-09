@@ -4,12 +4,12 @@ import BeardSection from './SubPges/OurServices/BeardSection'
 import HeraderOurServices from './SubPges/OurServices/HeraderOurServices'
 
 
-function OurServices() {
+function OurServices(props) {
   return (
     <>
-        <HeraderOurServices/>
-        <HairCutSection/>
-        <BeardSection/>
+        <HeraderOurServices modalVisible={props.modalVisible} content={props.modalContent}  />
+        <HairCutSection modalVisible={props.modalVisible} content={props.modalContent}  />
+        <BeardSection modalVisible={props.modalVisible} content={props.modalContent} />
     </>
   
   )

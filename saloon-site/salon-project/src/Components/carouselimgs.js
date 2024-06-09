@@ -1,22 +1,47 @@
 import img1 from '../Pages/img/img1.jpg'
 import haircut from '../Pages/img/haicut.jpeg'
 import beard from '../Pages/img/beard.jpeg'
+import beard2 from '../Pages/img/beard2.jpeg'
+import hairStyles from '../Pages/img/hairStyles.jpg'
+import OIP from '../Pages/img/OIP.jpeg'
+import R from '../Pages/img/R.jpeg'
+import Stylish from '../Pages/img/Stylish.jpg'
 
 export const carouselimgs = [
     {
         id: 1,
-        url: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        url: haircut,
         
         alt: "img1"
     },
     {
         id: 2,
-        url: "https://images.unsplash.com/photo-1633681926035-ec1ac984418a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        url: img1,
         alt: "img2"
     },
     {
         id: 3,
-        url: "https://plus.unsplash.com/premium_photo-1661380558859-40df8dd91dfd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        url: beard,
         alt: "img3"
     }
 ]
+
+export const carouse2 = [
+    {
+        id: 1,
+        url: beard2,
+        
+        alt: "img1"
+    },
+    {
+        id: 2,
+        url: hairStyles,
+        alt: "img2"
+    },
+    {
+        id: 3,
+        url: OIP,
+        alt: "img3"
+    }
+]
+
