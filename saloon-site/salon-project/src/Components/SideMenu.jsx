@@ -17,17 +17,6 @@ function SideMenu({ show, modalVisible, setShowNav }) {
     setNum(!num);
   }
 
-  useEffect(() => {
-    document.body.classList.add(className);
-
-    return () => {
-      document.body.classList.remove(className);
-    };
-  }, [className]);
-
-  function abc() {
-    setClassName("bg-blue-800");
-  }
 
   const modalRef = useRef();
 
@@ -95,7 +84,7 @@ function SideMenu({ show, modalVisible, setShowNav }) {
                 smooth={true}
                 offset={0}
                 duration={500}
-                onClick={abc}
+                
               >
                 <li className="py-4 px-8 hover:bg-slate-800">OURSERVICES</li>
               </Link>

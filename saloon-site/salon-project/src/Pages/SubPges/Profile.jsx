@@ -84,7 +84,7 @@ function Profile({ setWinVisible }) {
             className="bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-1/2 rounded-full border-2 border-white hover:border-black"
             type="button"
           >
-            Remove Me
+            Quit
           </button>
         </div>
       </form>
