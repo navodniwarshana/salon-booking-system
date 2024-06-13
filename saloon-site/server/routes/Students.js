@@ -1,78 +1,84 @@
 const router = require("express").Router();
-let Student = require("../models/Student");
+const Appointment = require("../models/Appointment");
 
-// Add a new student
-router.route("/add").post((req, res) => {
-    const name = req.body.name;
-    const age = Number(req.body.age);
-    const gender = req.body.gender;
+// Add a new appointment
+router.route("/add").post(async (req, res) => {
+    const { userId, service, date, time } = req.body;
 
-    const newStudent = new Student({
-        name,
-        age,
-        gender
+    const newAppointment = new Appointment({
+        userId,
+        service,
+        date,
+        time
     });
 
-    newStudent.save()
-        .then(() => {
-            res.json("User Added");
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json({ error: err.message });
-        });
-});
-
-// Get all students
-router.route("/").get((req, res) => {
-    Student.find()
-        .then((students) => {
-            res.json(students);
-        })
-        .catch((err) => {
-            console.log(err);
-            res.status(500).json({ error: err.message });
-        });
-});
-
-// Update a student
-router.route("/update/:id").put(async (req, res) => {
-    const { id } = req.params;
-    const { name, age, gender } = req.body;
-
-    const updateUser = { name, age, gender };
-
     try {
-        const updatedUser = await Student.findByIdAndUpdate(id, updateUser, { new: true });
-        res.status(200).send({ status: "User updated", user: updatedUser });
+        const savedAppointment = await newAppointment.save();
+        res.status(201).json("Appointment Added");
     } catch (err) {
-        res.status(500).send({ status: "Error updating data", error: err.message });
+        console.log(err);
+        res.status(500).json({ error: err.message });
     }
 });
 
-// Delete a student
+// Get all appointments
+router.route("/").get(async (req, res) => {
+    try {
+        const appointments = await Appointment.find().populate('userId');
+        res.status(200).json(appointments);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({ error: err.message });
+    }
+});
+
+// Update an appointment
+router.route("/update/:id").put(async (req, res) => {
+    const { id } = req.params;
+    const { userId, service, date, time } = req.body;
+
+    const updateAppointment = { userId, service, date, time };
+
+    try {
+        const updatedAppointment = await Appointment.findByIdAndUpdate(id, updateAppointment, { new: true });
+        if (!updatedAppointment) {
+            return res.status(404).json({ message: "Appointment not found" });
+        }
+        res.status(200).send({ status: "Appointment updated", appointment: updatedAppointment });
+    } catch (err) {
+        res.status(500).send({ status: "Error updating appointment", error: err.message });
+    }
+});
+
+// Delete an appointment
 router.route("/delete/:id").delete(async (req, res) => {
     const { id } = req.params;
 
     try {
-        await Student.findByIdAndDelete(id);
-        res.status(200).send({ status: "User deleted" });
+        const deletedAppointment = await Appointment.findByIdAndDelete(id);
+        if (!deletedAppointment) {
+            return res.status(404).json({ message: "Appointment not found" });
+        }
+        res.status(200).send({ status: "Appointment deleted" });
     } catch (err) {
         console.log(err.message);
-        res.status(500).send({ status: "Error deleting user", error: err.message });
+        res.status(500).send({ status: "Error deleting appointment", error: err.message });
     }
 });
 
-// Get a student by ID
+// Get an appointment by ID
 router.route("/get/:id").get(async (req, res) => {
     const { id } = req.params;
 
     try {
-        const user = await Student.findById(id);
-        res.status(200).send({ status: "User fetched", user });
+        const appointment = await Appointment.findById(id).populate('userId');
+        if (!appointment) {
+            return res.status(404).json({ message: "Appointment not found" });
+        }
+        res.status(200).send({ status: "Appointment fetched", appointment });
     } catch (err) {
         console.log(err.message);
-        res.status(500).send({ status: "Error fetching user", error: err.message });
+        res.status(500).send({ status: "Error fetching appointment", error: err.message });
     }
 });
 

@@ -42,6 +42,9 @@ app.use("/Users", UserRouter);
 const ServiceRouter = require("./routes/Services.js");
 app.use("/Services", ServiceRouter);
 
+const AppointmentRouter = require("./routes/Appointments.js");
+app.use("/Appointments", AppointmentRouter);
+
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number ${PORT}`);
 });
