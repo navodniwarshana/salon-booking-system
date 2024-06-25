@@ -1,3 +1,5 @@
+const passwordHash = require('password-hash');
+
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
@@ -6,8 +8,8 @@ const dotenv = require("dotenv");
 const path = require("path");
 const app = express();
 require("dotenv").config();
-
 const PORT = process.env.PORT || 8070;
+
 
 app.use(cors());
 
@@ -44,6 +46,9 @@ app.use("/Services", ServiceRouter);
 
 const AppointmentRouter = require("./routes/Appointments.js");
 app.use("/Appointments", AppointmentRouter);
+
+const LoginInfoRouter = require("./routes/LoginInfos.js");
+app.use("/LoginInfos",LoginInfoRouter);
 
 app.listen(PORT, () => {
     console.log(`Server is up and running on port number ${PORT}`);

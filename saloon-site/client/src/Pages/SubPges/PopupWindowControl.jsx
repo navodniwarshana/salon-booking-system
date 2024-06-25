@@ -23,16 +23,16 @@ function PopupWindowControl({ modalVisible, content }) {
     document.body.style.overflow = modalVisible ? "hidden" : "auto";
   }, [modalVisible]);
 
-  const isLogin=true;
+  const isLogin=false;
   useEffect(() => {
   
     if (content==="APPOINTMENTS") {
       setWinVisible(4);
     }else{
       if (isLogin) {
-        setWinVisible(3);
+        setWinVisible("profilesss");
       }else{
-        setWinVisible(1);
+        setWinVisible("login");
       }
       
     }
@@ -44,11 +44,11 @@ function PopupWindowControl({ modalVisible, content }) {
       onClick={CloseModal}
       className="fixed flex pt-20 justify-center inset-0 p-20 bg-opacity-70 backdrop-blur-sm overflow-auto "
     >
-      {winVisible === -1 && modalVisible()}
-      {winVisible === 0 && <SignUp setWinVisible={setWinVisible} />}
-      {winVisible === 1 && <Login setWinVisible={setWinVisible} />}
-      {winVisible === 2 && <ResetPassword setWinVisible={setWinVisible} />}
-      {winVisible === 3 && <Profile setWinVisible={setWinVisible} />}
+      {winVisible === "close" && modalVisible()}
+      {winVisible === "signUp" && <SignUp setWinVisible={setWinVisible} />}
+      {winVisible === "login" && <Login setWinVisible={setWinVisible} />}
+      {winVisible === "forgotPassword" && <ResetPassword setWinVisible={setWinVisible} />}
+      {winVisible === "profile" && <Profile setWinVisible={setWinVisible} />}
       {/*winVisible === 4 && <Appointment setWinVisible={setWinVisible} />*/}
       {winVisible === 4 && <AddBooking setWinVisible={setWinVisible} />}
       {winVisible === 5 && <ConfirmBook setWinVisible={setWinVisible} />}

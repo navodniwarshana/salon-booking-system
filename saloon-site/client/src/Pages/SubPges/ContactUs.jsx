@@ -16,7 +16,7 @@ function ContactUspage() {
           <p>
             Where Your Hair Dreams Come True <br />
             +94 71 123 4567 <br />
-            saloninoka@gmail.com <br />
+            saloninokanoori@gmail.com <br />
             <p className="flex items-center justify-center">
               {<FaLocationDot />}
               <a

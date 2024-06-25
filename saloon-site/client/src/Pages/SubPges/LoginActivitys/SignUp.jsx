@@ -1,31 +1,64 @@
 import React, { useState } from "react";
 import { FaAngleLeft } from "react-icons/fa6";
 import { IoIosClose } from "react-icons/io";
+import axios from "axios";
 
 function SignUp({ setWinVisible }) {
-
   const [username, setUsername] = useState("");
   const [usernameAvailable, setUsernameAvailable] = useState(null);
+  const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("");
+  const [contactNumber, setContactNumber] = useState("");
+  const [address, setAddress] = useState("");
 
+  console.log(name);
   // Mock function to check username availability
   const checkUsernameAvailability = () => {
     // Mock check, replace with actual API call
     setUsernameAvailable(username !== "takenusername");
   };
 
-  const handleClick = (action) => {
+  const handleClick = async (action) => {
     if (action === "forgotPassword") {
       setWinVisible(2); // Show ResetPassword component
-  
     } else if (action === "logIn") {
-      setWinVisible(1); // Show SignUp component
-    }
-     else if (action === "GoBack") {
-      setWinVisible(1); // Show SignUp component
-    }
-     else if (action === "CloseWin") {
-      setWinVisible(-1); // Show SignUp component
+      setWinVisible(1); // Show logIn component
+    } else if (action === "GoBack") {
+      setWinVisible(1); // Show GoBack component
+    } else if (action === "CloseWin") {
+      setWinVisible(-1); // Show CloseWin component
+    } else if (action === "signUp") {
+      console.log(name, age, address, contactNumber);
+
+      // Send form data to the server
+      try {
+        const response = await axios.post("http://localhost:8070/users/add", {
+          username,
+          name,
+          age,
+          gender,
+          contactNumber,
+          address,
+          rememberMe,
+        });
+        console.log(response.data); // Handle response from the server
+      } catch (error) {
+        console.error("There was an error signing up!", error);
+      }
+
+      // Send form data to the server
+      try {
+        const response = await axios.post("http://localhost:8070/LoginInfos/add", {
+          username,
+          password
+        });
+        console.log(response.data); // Handle response from the server
+      } catch (error) {
+        console.error("There was an error signing up!", error);
+      }
     }
   };
 
@@ -34,14 +67,16 @@ function SignUp({ setWinVisible }) {
   };
   //setWinVisible(1); // Navigate back to the previous window (e.g., login or home)
 
-
   return (
     <>
       <div>
         <form className="space-y-4 mt-4 px-16 h-auto max-w-md mx-auto bg-black opacity-75 border-4 border-black rounded-2xl shadow-md">
           <div className="flex justify-between my-4 mx-5">
             <button>
-              <FaAngleLeft onClick={() => handleClick("GoBack")} className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
+              <FaAngleLeft
+                onClick={() => handleClick("GoBack")}
+                className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full"
+              />
             </button>
 
             <h1 className="text-center font-playfir text-white font-bold text-2xl">
@@ -49,40 +84,57 @@ function SignUp({ setWinVisible }) {
             </h1>
 
             <button>
-              <IoIosClose onClick={() => handleClick("CloseWin")} className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full" />
+              <IoIosClose
+                onClick={() => handleClick("CloseWin")}
+                className="w-8 h-8 border-2 bg-black border-white fill-white hover:border-white hover:fill-black hover:bg-white rounded-full"
+              />
             </button>
           </div>
-
+          {/*-------------------------------------------------------- */}
           <div className="relative py-8">
             <div className="font-itim my-4 mt-10">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="name">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="name"
+              >
                 Name
               </label>
               <input
+                onChange={(e) => setName(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="name"
+                name="name"
                 type="text"
                 placeholder="Enter Your Name"
               />
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="age">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="age"
+              >
                 Age
               </label>
               <input
+                onChange={(e) => setAge(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="age"
+                name="age"
                 type="number"
                 placeholder="Enter Your Age"
               />
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="gender">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="gender"
+              >
                 Gender
               </label>
               <select
+                onChange={(e) => setGender(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="gender"
               >
@@ -94,10 +146,14 @@ function SignUp({ setWinVisible }) {
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="contact">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="contact"
+              >
                 Contact Number
               </label>
               <input
+                onChange={(e) => setContactNumber(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="contact"
                 type="text"
@@ -106,10 +162,14 @@ function SignUp({ setWinVisible }) {
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="address">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="address"
+              >
                 Address
               </label>
               <input
+                onChange={(e) => setAddress(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="address"
                 type="text"
@@ -118,7 +178,10 @@ function SignUp({ setWinVisible }) {
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="username">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="username"
+              >
                 Username
               </label>
               <input
@@ -153,7 +216,10 @@ function SignUp({ setWinVisible }) {
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="password">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="password"
+              >
                 Password
               </label>
               <input
@@ -165,10 +231,14 @@ function SignUp({ setWinVisible }) {
             </div>
 
             <div className="font-itim my-4">
-              <label className="absolute text-white border-1 text-xl pl-6" htmlFor="confirmPassword">
+              <label
+                className="absolute text-white border-1 text-xl pl-6"
+                htmlFor="confirmPassword"
+              >
                 Confirm Password
               </label>
               <input
+                onChange={(e) => setPassword(e.target.value)}
                 className="shadow appearance-none border-2 border-black text-lg rounded-full w-full mt-8 pt-4 py-2 px-3 text-black placeholder-opacity-100 leading-tight focus:outline-none focus:shadow-outline"
                 id="confirmPassword"
                 type="password"
@@ -184,27 +254,31 @@ function SignUp({ setWinVisible }) {
                 onChange={handleRememberMeChange}
                 className="form-checkbox h-5 w-5 text-gray-600"
               />
-              <label htmlFor="rememberMe" className="ml-2 text-white font-playfir text-lg">
+              <label
+                htmlFor="rememberMe"
+                className="ml-2 text-white font-playfir text-lg"
+              >
                 Remember Me
               </label>
             </div>
 
             <div className="flex items-center justify-center text-center rounded-full p-1 my-8">
-              <p  className="bg-black hover:bg-white text-white hover:text-black font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-1/2 rounded-full border-2 border-white active:underline"
-              type="button"
-              onClick={() => handleClick("signUp")} >
-                
-                Sign Up</p>
-                
-              
+              <p
+                className="bg-black hover:bg-white cursor-pointer text-white hover:text-black font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-1/2 rounded-full border-2 border-white active:underline"
+                type="button"
+                onClick={() => handleClick("signUp")}
+              >
+                Sign Up
+              </p>
             </div>
             <div className="text-white text-center">
-            
-                <p onClick={() => handleClick("logIn")} className="m-2 text-lg t
-                font-itim hover:text-xl hover:font-bold active:underline">
-                  Log In
-                </p>
-             
+              <p
+                onClick={() => handleClick("logIn")}
+                className="m-2 text-lg t
+                font-itim hover:text-xl hover:font-bold active:underline"
+              >
+                Log In
+              </p>
             </div>
           </div>
         </form>

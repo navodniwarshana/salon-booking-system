@@ -4,11 +4,10 @@ let User = require('../models/User');
 
 // Add a new user
 router.post('/add', async (req, res) => {
-  const { username, password, contactNumber, address, age, gender } = req.body;
+  const { username, contactNumber, address, age, gender } = req.body;
 
   const newUser = new User({
     username,
-    password,
     contactNumber,
     address,
     age,
@@ -38,7 +37,7 @@ router.get('/', async (req, res) => {
 // Update a user
 router.put('/update/:id', async (req, res) => {
   const { id } = req.params;
-  const { username, password, contactNumber, address, age, gender } = req.body;
+  const { username, contactNumber, address, age, gender } = req.body;
 
   const updateUser = { username, password, contactNumber, address, age, gender };
 

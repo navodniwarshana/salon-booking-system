@@ -1,84 +1,75 @@
-const router = require("express").Router();
-const Appointment = require("../models/Appointment");
+const express = require('express');
+const router = express.Router();
+const LoginInfo = require('../models/student');
 
-// Add a new appointment
-router.route("/add").post(async (req, res) => {
-    const { userId, service, date, time } = req.body;
+// Get all LoginInfos
+router.get('/', async (req, res) => {
+    try {
+        const loginInfos = await LoginInfo.find();
+        res.status(200).json(loginInfos);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
+    }
+});
 
-    const newAppointment = new Appointment({
-        userId,
-        service,
-        date,
-        time
+// Add a new LoginInfo
+router.post('/add', async (req, res) => {
+    const { name, age,gender } = req.body;
+
+    const newLoginInfo = new LoginInfo({
+        name,
+        age,
+        gender
     });
 
     try {
-        const savedAppointment = await newAppointment.save();
-        res.status(201).json("Appointment Added");
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: err.message });
+        await newLoginInfo.save();
+        res.status(201).json('User Added');
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: error.message });
     }
 });
 
-// Get all appointments
-router.route("/").get(async (req, res) => {
+// Get LoginInfo By ID
+router.get('/:id', async (req, res) => {
     try {
-        const appointments = await Appointment.find().populate('userId');
-        res.status(200).json(appointments);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ error: err.message });
-    }
-});
-
-// Update an appointment
-router.route("/update/:id").put(async (req, res) => {
-    const { id } = req.params;
-    const { userId, service, date, time } = req.body;
-
-    const updateAppointment = { userId, service, date, time };
-
-    try {
-        const updatedAppointment = await Appointment.findByIdAndUpdate(id, updateAppointment, { new: true });
-        if (!updatedAppointment) {
-            return res.status(404).json({ message: "Appointment not found" });
+        const loginInfo = await LoginInfo.findById(req.params.id);
+        if (!loginInfo) {
+            return res.status(404).json({ message: 'LoginInfo not found' });
         }
-        res.status(200).send({ status: "Appointment updated", appointment: updatedAppointment });
-    } catch (err) {
-        res.status(500).send({ status: "Error updating appointment", error: err.message });
+        res.status(200).json(loginInfo);
+    } catch (error) {
+        res.status(500).send({ error: error.message });
     }
 });
 
-// Delete an appointment
-router.route("/delete/:id").delete(async (req, res) => {
-    const { id } = req.params;
+// Update LoginInfo By ID
+router.put('/:id', async (req, res) => {
+    const { username, password } = req.body;
+    const updateData = { username, password };
 
     try {
-        const deletedAppointment = await Appointment.findByIdAndDelete(id);
-        if (!deletedAppointment) {
-            return res.status(404).json({ message: "Appointment not found" });
+        const updatedLoginInfo = await LoginInfo.findByIdAndUpdate(req.params.id, updateData, { new: true });
+        if (!updatedLoginInfo) {
+            return res.status(404).json({ message: 'LoginInfo not found' });
         }
-        res.status(200).send({ status: "Appointment deleted" });
-    } catch (err) {
-        console.log(err.message);
-        res.status(500).send({ status: "Error deleting appointment", error: err.message });
+        res.status(200).json({ message: 'LoginInfo updated', loginInfo: updatedLoginInfo });
+    } catch (error) {
+        res.status(500).send({ error: error.message });
     }
 });
 
-// Get an appointment by ID
-router.route("/get/:id").get(async (req, res) => {
-    const { id } = req.params;
-
+// Delete LoginInfo By ID
+router.delete('/:id', async (req, res) => {
     try {
-        const appointment = await Appointment.findById(id).populate('userId');
-        if (!appointment) {
-            return res.status(404).json({ message: "Appointment not found" });
+        const deletedLoginInfo = await LoginInfo.findByIdAndDelete(req.params.id);
+        if (!deletedLoginInfo) {
+            return res.status(404).json({ message: 'LoginInfo not found' });
         }
-        res.status(200).send({ status: "Appointment fetched", appointment });
-    } catch (err) {
-        console.log(err.message);
-        res.status(500).send({ status: "Error fetching appointment", error: err.message });
+        res.status(200).json({ message: 'LoginInfo deleted' });
+    } catch (error) {
+        res.status(500).send({ error: error.message });
     }
 });
 

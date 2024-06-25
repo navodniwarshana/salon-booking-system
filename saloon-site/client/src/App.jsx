@@ -10,11 +10,14 @@ import PopupWindowControl from "./Pages/SubPges/PopupWindowControl";
 import SideMenu from "./Components/SideMenu";
 import Headroom from "react-headroom";
 
+
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalContent, setModalContent] = useState(null);
 
-  showModal ? (document.body.style.overflow = "hidden") : (document.body.style.overflow = "auto");
+  showModal
+    ? (document.body.style.overflow = "hidden")
+    : (document.body.style.overflow = "auto");
 
   function modalVisible(content = null) {
     setShowModal(!showModal);
@@ -23,32 +26,35 @@ function App() {
   const content = (e) => {
     if (modalContent === "APPOINTMENTS") {
       content("APPOINTMENTS");
-    }else if(modalContent === "AddBooking"){
+    } else if (modalContent === "AddBooking") {
       content("AddBooking");
     }
   };
-  
- 
+
   return (
     <>
       <div className="min-w-[320px]">
         <ScrollingHeader modalVisible={modalVisible} />
         <Headroom>
-        <Navigation modalVisible={modalVisible} /></Headroom>
-        <SideMenu modalVisible={modalVisible}/>
-        <BodyContent modalVisible={modalVisible} content={modalContent} >
+          <Navigation modalVisible={modalVisible} />
+        </Headroom>
+        <SideMenu modalVisible={modalVisible} />
+        <BodyContent modalVisible={modalVisible} content={modalContent}>
           <HomeWin modalVisible={modalVisible} content={modalContent} />
           <OurServices modalVisible={modalVisible} content={modalContent} />
-         
+
           <ContactUs />
         </BodyContent>
         <Footer modalVisible={modalVisible} content={modalContent} />
-        {showModal && <PopupWindowControl modalVisible={modalVisible} content={modalContent} />}
-
-        
+        {showModal && (
+          <PopupWindowControl
+            modalVisible={modalVisible}
+            content={modalContent}
+          />
+        )}
       </div>
     </>
   );
 }
 
-export default App; 
+export default App;

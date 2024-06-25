@@ -16,6 +16,8 @@ router.route('/add').post(async (req, res) => {
 
         const savedAppointment = await newAppointment.save();
         res.status(201).json(savedAppointment);
+        res.status(201).json("Appointment Added");
+
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Failed to add appointment' });
