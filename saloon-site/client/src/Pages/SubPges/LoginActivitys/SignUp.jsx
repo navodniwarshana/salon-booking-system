@@ -265,12 +265,13 @@ function SignUp({ setWinVisible }) {
             <div className="flex items-center justify-center text-center rounded-full p-1 my-8">
               <p
                 className="bg-black hover:bg-white cursor-pointer text-white hover:text-black font-bold py-2 px-4 focus:outline-none focus:shadow-outline w-1/2 rounded-full border-2 border-white active:underline"
-                type="button"
+                type="submit"
                 onClick={() => handleClick("signUp")}
               >
                 Sign Up
               </p>
             </div>
+            
             <div className="text-white text-center">
               <p
                 onClick={() => handleClick("logIn")}

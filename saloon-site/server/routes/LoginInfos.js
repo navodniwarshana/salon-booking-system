@@ -6,18 +6,18 @@ let LoginInfo = require("../models/LoginInfo");
 router.route("/add").post(async (req, res) => {
     const { username, password } = req.body;
   
-    //check already exists
-    //const existingUser=await collection.findOne({username: DataTransfer.username});
-   // if (existingUser) {
-        //res.json("user already exists, pleace choose a different username.");
-   // } else {
-     
-        const newLoginInfo = new LoginInfo({
-            username,
-            password
-        });
+   
   //  }
-
+ //check already exists
+ const existingUser=await collection.findOne({username: DataTransfer.username});
+ if (existingUser) {
+     res.send("user already exists, pleace choose a different username.");
+ } else {
+  
+     const newLoginInfo = new LoginInfo({
+         username,
+         password
+     });
 
     try {
         await newLoginInfo.save();
@@ -25,7 +25,7 @@ router.route("/add").post(async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: err.message });
-    }
+    }}
 });
 
 // Get all login infos
@@ -46,6 +46,7 @@ router.route("/update/:id").put(async (req, res) => {
 
     const updateLoginInfo = { username, password };
 
+  
     try {
         const updatedLoginInfo = await LoginInfo.findByIdAndUpdate(id, updateLoginInfo, { new: true });
         res.status(200).send({ status: "Login Info updated", loginInfo: updatedLoginInfo });

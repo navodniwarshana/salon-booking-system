@@ -41,7 +41,7 @@ function PopupWindowControl({ modalVisible, content }) {
   return ( 
     <div
       ref={modalRef}
-      onClick={CloseModal}
+      onClick={CloseModal}m
       className="fixed flex pt-20 justify-center inset-0 p-20 bg-opacity-70 backdrop-blur-sm overflow-auto "
     >
       {winVisible === "close" && modalVisible()}

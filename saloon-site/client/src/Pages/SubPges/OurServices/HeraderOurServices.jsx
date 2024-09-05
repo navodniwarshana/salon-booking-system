@@ -5,7 +5,7 @@ function HeraderOurServices(props) {
   return (
    <>
    <div name='OURSERVICES'
-      className="bg-white font-playfir
+      className="bg-white font-playfir 
         text-black h-14  min-w-[230px]"
     >
 

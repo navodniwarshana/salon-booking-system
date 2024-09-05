@@ -10,7 +10,6 @@ const app = express();
 require("dotenv").config();
 const PORT = process.env.PORT || 8070;
 
-
 app.use(cors());
 
 // Serve static files from the uploads directory

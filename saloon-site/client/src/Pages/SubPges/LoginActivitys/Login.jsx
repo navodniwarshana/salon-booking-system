@@ -28,7 +28,7 @@ function Login({ setWinVisible }) {
    function getStudents() {
      axios.get("http://localhost:8070/OpenCloseTimesSchemas/")
        .then((res) => {
-         alert("done");
+       //  alert("done");
          //alert(res.data);
          console.log(res.data);
 
